@@ -1,0 +1,44 @@
+from flask import Flask, render_template, url_for
+from employees import employees_data
+app= Flask(__name__)
+@app.route('/')
+@app.route('/home')
+#passing placeholder and parameters through jinja and using template inheritance concept
+def home():
+    return render_template("home.html",title = "Home")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html",title = "About")
+
+
+@app.route("/evaluate/<int:num>")
+def evaluate(num):
+    return render_template(
+        "evaluate.html",
+        title="Evaluate",
+        number=num
+    )
+def about():
+    return render_template("about.html",title = "About")
+
+# employees page
+@app.route("/employees")
+def employees():
+	return render_template(
+		"employees.html",
+		title="Employees",
+		emps=employees_data
+    )
+
+@app.route("/employees/managers")
+def managers():
+	return render_template(
+		"managers.html",
+		title="Managers",
+		emps=employees_data
+    )
+
+if __name__ == "main":
+    app.run(debug=True)
