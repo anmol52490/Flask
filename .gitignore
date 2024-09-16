@@ -1,3 +1,4 @@
 flask_env
 __pycache__
 *.pdf
+instance
