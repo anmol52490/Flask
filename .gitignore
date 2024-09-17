@@ -2,3 +2,4 @@ flask_env
 __pycache__
 *.pdf
 instance
+flask_session
